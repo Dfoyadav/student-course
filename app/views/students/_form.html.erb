@@ -1,0 +1,15 @@
+<%= form_with model: @student do |form| %>
+	<div>
+		<%= form.label :name %><br>
+		<%= form.text_field :name %>
+	</div>
+
+	<div class="filed">
+		<%= form.label :Course%><br>
+
+	  <%= form.collection_select :course_id ,Course.all, :id , :name %>
+  </div>
+	<div>
+		<%= form.submit %>
+	</div>
+<% end %>

@@ -1,0 +1,35 @@
+<h6>
+<div class="container">  
+<h1>Course List</h1>
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>duration</th>
+    <th>Show</th>
+    <th>Edit</th>
+    <th>Delete</th>
+    <th>qr generate</th>
+  </tr>
+  </thead>
+<% @courses.each do |course| %>
+  <tr>
+    <td><%= course.name %></td>
+    <td><%= course.duration %></td>
+    <td><%= link_to 'Show', course %></td>
+    <td><%= link_to 'Edit', edit_course_path(course) %></td>
+    <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'qr_code', qr_code_generator_course_path(course) %></td>
+    <td><%= link_to 'download_qr', qr_code_download_course_path(course) %></td>
+  </tr>
+<% end %>
+</table>
+<td><%= link_to 'New Course', new_course_path %></td><br>
+<td><%= link_to 'Add New Student', new_student_path %></td><br>
+<%=  link_to 'Export CSV', '/courses.csv' %> <br>
+
+
+
+
+</h6>
+</div>
